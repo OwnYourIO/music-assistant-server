@@ -68,6 +68,11 @@ RUN set -x \
     && apt install -y /tmp/deb-multimedia-keyring_2016.8.1_all.deb \
     && apt-get update \
     && apt install -y -t 'o=Unofficial Multimedia Packages' ffmpeg \
+    # install roc-toolkit from 
+    && wget https://github.com/roc-streaming/roc-toolkit/releases/download/v0.4.0/roc_0.4.0_amd64.deb \
+    && wget https://github.com/roc-streaming/roc-toolkit/releases/download/v0.4.0/libroc_0.4.0_amd64.deb \
+    && wget https://github.com/roc-streaming/roc-toolkit/releases/download/v0.4.0/libroc-dev_0.4.0_amd64.deb \
+    && apt install -y vim ./*.deb \
     # cleanup
     && rm -rf /tmp/* \
     && rm -rf /var/lib/apt/lists/*
